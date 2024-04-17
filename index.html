@@ -4,6 +4,7 @@
   </head>
   <body>
     <a-scene>
+      <a-entity environment="playArea: 2; preset: forest"></a-entity>
       <a-box grabbable position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
       <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
       <a-cylinder
@@ -25,6 +26,7 @@
 
       <a-entity id="leftHand" hand-tracking-grab-controls="hand: left;"></a-entity>
       <a-entity id="rightHand" hand-tracking-grab-controls="hand: right;"></a-entity>
+    </a-entity>
     </a-scene>
   </body>
 </html>
