@@ -1,55 +1,112 @@
-<html>
-  <head>
-    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v7.2.0/dist/aframe-extras.min.js"></script>
-    <script
-        src="https://unpkg.com/aframe-environment-component@1.3.3/dist/aframe-environment-component.min.js"></script>
-    <script
-        src="https://unpkg.com/aframe-text-geometry-component@0.5.1/dist/aframe-text-geometry-component.min.js"></script>
-    <script src="https://unpkg.com/aframe-babia-components@1.2.7/dist/aframe-babia-components.min.js"></script>
-    <link rel="stylesheet" href="../museum/assets/gitlab-corner.css"> 
-    <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@7.2.0/dist/aframe-extras.min.js"></script>
-    
-  </head>
-  <body>
-    <a-scene>
-      <a-assets>
-        <a-asset-item id="robot" src="gundam.glb"></a-asset-item>
-      </a-assets>
-      
-      <a-entity environment="playArea: 2; preset: forest"></a-entity>
-      <a-box grabbable position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
-      <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
-      <a-cylinder
-        grabbable
-        position="1 0.75 -3"
-        radius="0.5"
-        height="1.5"
-        color="#FFC65D"
-      ></a-cylinder>
-      <a-plane
-        grabbable
-        position="0 0 -4"
-        rotation="-90 0 0"
-        width="4"
-        height="4"
-        color="#7BC8A4"
-      ></a-plane>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+<!-- https://3djcvs.github.io/solar/ -->
+  <title>Sistema Solar</title>
+  <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+</head>
 
-      <a-entity id="leftHand" hand-tracking-grab-controls="hand: left;"></a-entity>
-      <a-entity id="rightHand" hand-tracking-grab-controls="hand: right;"></a-entity>
+<body>
+<a-scene id="Sistema_Solar">
+
+ <a-assets>
+  <a-asset-item id="ufo" src="./planetas/retro_ufo/scene.gltf"></a-asset-item>
+ </a-assets>
+
+    <!-- espacio exterior  -->
+    <a-sky src = "planetas/espacio.jpg"></a-sky>
+    <!-- img conseguida de www.eso.org/public/images/eso0932a/    -->
+    
+    <!-- Sol -->
+    <a-sphere id="sun" 
+    position="0 1.25 -5" 
+    radius="3" src="planetas/sun.jpeg"
+    animation="property: rotation; to: 0 360 0; loop: true; dur: 22224">
+    </a-sphere>
+
+    <!-- Mercurio -->
+    <a-sphere id="mercury" 
+    position="3.9 1.25 -5" 
+    radius="0.1" src="planetas/mercury.jpeg"  
+    animation="property: rotation; to: 0 360 0; loop: true; dur: 5865">
+    </a-sphere>
+
+    <!-- Venus -->
+    <a-sphere id="venus" 
+    position="7.2 1.25 -5" 
+    radius="0.2" src="planetas/venus.jpeg" 
+    rotation="0 0 0" 
+    animation="property: rotation; to: 0 -360 0; loop: true; dur: 24300">
+    </a-sphere>
+
+    <!-- Tierra -->
+    <a-sphere id="earth" 
+    
+    radius="0.3" src="planetas/earth.jpeg" 
+    position="10 1.25 -5" rotation="0 0 23.4"
+    animation="property: rotation; to: 0 360 0; loop: true; dur: 1064">
+    </a-sphere>
+
+    <!-- Marte -->
+    <a-sphere id="mars" 
+    position="15.2 1.25 -5" 
+    radius="0.2" src="planetas/mars.jpeg" rotation="0 0 0" 
+    animation="property: rotation; to: 0 360 0; loop: true; dur: 886.4">
+    </a-sphere>
+
+    <!-- Jupiter -->
+    <a-sphere id="jupiter" 
+    position="52 1.25 -5" 
+    radius="1.5" src="planetas/jupiter.jpeg" 
+    animation="property: rotation; to: 0 360 0; loop: true; dur: 352.8">
+    </a-sphere>
+
+    <a-entity position="95 1.25 -5" rotation="0 0 26.7">
+        <a-sphere
+         radius="1.2" src="planetas/saturn.jpeg" 
+        animation="property: rotation; to: 0 360 0; loop: true; dur: 395.2" >
+        <a-torus id="anillo-1" color="#57524A" segments-tubular="50" radius="3.6" radius-tubular="0.1" rotation="90 0 0" scale="0.64 0.64 0.04" ></a-torus>
+        <a-torus id="anillo-2" color="#A29A87" segments-tubular="50" radius="2.8" radius-tubular="0.2" rotation="90 0 0" scale="0.64 0.64 0.04"  ></a-torus>
+      </a-sphere>        
     </a-entity>
 
-            <a-entity gltf-model="#robot" 
-              position="1.5 0.7 -4" 
-              rotation="0 45 0"
-              scale="1 1 1"
-              animation="property: position; to: 3 0.7 -5; dir: alternate; loop: true"         
-              ></a-entity>
+    <!-- Urano -->
+    <a-sphere id="uranus" 
+    position="192 1.25 -5" 
+    radius="0.7" src="planetas/uranus.jpeg" 
+    rotation="0 0 0" 
+    animation="property: rotation; to: 3600 0 0; loop: true; dur: 604.8">
+    </a-sphere>
 
-      <a-entity movement-controls="fly: true">
-        <a-entity camera look-controls wasd-controls position="0 1.6 0"></a-entity>
-      </a-entity>
-    </a-scene>
-  </body>
+    <!-- Neptuno -->
+    <a-sphere id="neptune" 
+    position="301 1.25 -5" 
+    radius="0.7" src="planetas/neptune.jpeg" 
+    animation="property: rotation; to: 0 360 0; loop: true; dur: 5472">
+    </a-sphere>
+
+    <!-- ufo
+Model Information:
+* title:	Retro UFO
+* source:	https://sketchfab.com/3d-models/retro-ufo-a198a969caed46f4b58ff30167339650
+* author:	fudailshajahan (https://sketchfab.com/fudailshajahan)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Retro UFO" (https://sketchfab.com/3d-models/retro-ufo-a198a969caed46f4b58ff30167339650) by fudailshajahan (https://sketchfab.com/fudailshajahan) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+  -->
+
+  <a-entity 
+  position="10 1.25 -5" 
+  gltf-model="#ufo"  
+  scale="0.1 0.1 0.1"
+  animation="property: rotation; to: 0 360 0; loop: true; dur: 850"
+  animation__2="property: position; to: 15.2 1.25 -5; dir: alternate; dur: 3500; easing: easeInOutCirc; loop: true">
+  </a-entity>
+
+</body>
 </html>
